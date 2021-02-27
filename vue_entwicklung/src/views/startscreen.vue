@@ -48,7 +48,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #8ABCF2;
+    color: #163CFF;
 }
 
 #appname_text{
@@ -79,7 +79,7 @@ export default {
 
 #start_b1{
     margin-top: 20%;
-    background-color: #8ABCF2;
+    background-color: #163CFF;
     border: none;
     text-decoration: none;
     border-radius: 6px;

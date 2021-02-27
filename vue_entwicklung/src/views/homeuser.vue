@@ -19,19 +19,20 @@
     <div id="homeuser_pic_div2">
         <div style="width: 100%;">
             <img v-if="!this.warnings_activated" @click="warnings_activated=true" id="homeuser_pic2" src="../assets/homeuser_pic2.png" alt="placehold">
-            <img v-if="this.warnings_activated" @click="warnings_activated=false" id="homeuser_pic2" src="../assets/homeuser_pic3.png" alt="placehold">
+            <img v-if="this.warnings_activated" @click="deactivate()" id="homeuser_pic2" src="../assets/homeuser_pic3.png" alt="placehold">
         </div>
     </div>
 
     <div id="homeuser_t2">
-        <p v-if="!this.warnings_activated">Keep me posted!</p>
+        <p v-if="!this.warnings_activated">Start listening for Warnings!</p>
         <p style="color: #8ABCF2" v-if="this.warnings_activated">Listening for ER warnings on your route...</p>
     </div>
 
     <div id="a_warnings_div1">
         <div id="a_warnings_div2">
             <toggle-button/>
-            <p style="margin-top: 0%; margin-left: 5%;">Enable automatic warnings</p>
+            <p style="margin-top: 0%; margin-left: 5%;">Recognize when I'm driving</p>
+            <i class="fa fa-info-circle" style="margin-left: 3%;" @click="rec_info()"></i>
         </div>
     </div>
 
@@ -45,6 +46,7 @@
 
 <script>
 import { ToggleButton } from 'vue-js-toggle-button'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 export default {
   name: 'App',
@@ -78,6 +80,33 @@ export default {
 
 
   methods: {
+
+      rec_info() {
+            this.$fire({
+                    title: "Info",
+                    text: "RTW can recognize when you are on a road by using your precise location utilizing 5G networks for tracking. Enable this to automatically start listening for warnings when driving is recognized.",
+                    type: "info",
+                    timer: 20000
+            });
+      },
+
+      deactivate() {
+
+          Swal.fire({
+                title: 'Stop ER warnings?',
+                text: "ER warnings won't appear any longer.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#163CFF',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'OK'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    this.warnings_activated=false;
+                }
+            })
+      }
+
   },
 }
 </script>
@@ -113,7 +142,7 @@ export default {
 
     #homeuser_t1{
         height: 20%;
-        color: #8ABCF2;
+        color: #163CFF;
     }
 
     #homeuser_pic2_div{

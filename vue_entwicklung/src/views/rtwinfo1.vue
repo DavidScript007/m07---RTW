@@ -62,7 +62,7 @@ export default {
 
 #appbar{
     height: 10%;
-    background-color: #8ABCF2;
+    background-color: #163CFF;
     color: white;
     display: flex;
     flex-direction: column;
@@ -110,7 +110,7 @@ export default {
 }
 
 #info1_button{
-    background-color:  #8ABCF2;
+    background-color:  #163CFF;
     color: white;
     border: none;
     padding: 3%;
