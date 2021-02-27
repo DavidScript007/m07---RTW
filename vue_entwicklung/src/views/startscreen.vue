@@ -25,15 +25,8 @@ export default {
   components: {
   },
 
-  sockets: {
-    customEmit: function (data) {
-      console.log(data);
-    }
-  },
-
   methods: {
     test: function () {
-      console.log("Hallo");
       this.$socket.emit('get-message', 'Das ist ein Test!');
     },
   },

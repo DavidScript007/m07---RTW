@@ -18,7 +18,7 @@
 
     <div id="homeuser_pic_div2">
         <div style="width: 100%;">
-            <img v-if="!this.warnings_activated" @click="warnings_activated=true; send_warning()" id="homeuser_pic2" src="../assets/homeuser_pic2.png" alt="placehold">
+            <img v-if="!this.warnings_activated" @click="warnings_activated=true" id="homeuser_pic2" src="../assets/homeuser_pic2.png" alt="placehold">
             <img v-if="this.warnings_activated" @click="warnings_activated=false" id="homeuser_pic2" src="../assets/homeuser_pic3.png" alt="placehold">
         </div>
     </div>
@@ -58,28 +58,26 @@ export default {
       };
   },
 
-  methods: {
 
-      send_warning() {
+    sockets: {
+        customEmit: function (data) {
 
-            setTimeout(function() {
-
-                var aussage = new SpeechSynthesisUtterance('Hier könnte Ihre Werbung stehen');
+            if (this.warnings_activated) {
+                var aussage = new SpeechSynthesisUtterance(data);
                 window.speechSynthesis.speak(aussage);
 
-                alert("Ein Rettungswagen befindet sich auf Ihrer Route!");
+                this.$fire({
+                    title: "Achtung!",
+                    text: data,
+                    type: "warning",
+                    timer: 20000
+                });
+            }
+        }
+    },
 
 
-                //this.$fire({
-                //    title: "Achtung!",
-                //    text: "Ein Rettungswagen befindet sich auf Ihrer Route!",
-                //    type: "warning",
-                //    timer: 20000
-                //});""
-
-            }, 5000);
-
-      }
+  methods: {
   },
 }
 </script>
