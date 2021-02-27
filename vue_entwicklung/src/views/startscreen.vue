@@ -2,10 +2,12 @@
   <div id="startscreen">
     
     <div id="appname_div">
-        <h1>RTW</h1>
+        <h1 id="appname_text">RTW</h1>
     </div>
 
-    <div id="start_pic"></div>
+    <div id="start_pic_div">
+        <img id="start_pic" src="../assets/startscreen_pic.png" alt="placehold">
+    </div>
 
     <div id="start_buttons_div">
         <button class="start_buttons" id="start_b1" @click="$router.push('homeuser')">GET STARTED</button>
@@ -40,17 +42,28 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: #8ABCF2;
+}
+
+#appname_text{
+    font-style: bold;
+}
+
+#start_pic_div{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;;
 }
 
 #start_pic{
-    height: 50%;
-    background-color: blue;
+    width: 100%;
 }
 
 #start_buttons_div{
     height: 35%;
     display: flex;
-    flex-direction: column;;
+    flex-direction: column;
 }
 
 .start_buttons{
@@ -60,10 +73,21 @@ export default {
 
 #start_b1{
     margin-top: 20%;
+    background-color: #8ABCF2;
+    border: none;
+    text-decoration: none;
+    border-radius: 6px;
+    padding: 3%;
+    color: white;
 }
 
 #start_b2{
     margin-top: 5%;
+    border: none;
+    text-decoration: none;
+    padding: 3%;
+    color: #F75353;
+    background-color: white;
 }
 
 </style>

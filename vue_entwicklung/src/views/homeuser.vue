@@ -1,29 +1,39 @@
 <template>
   <div id="homeuser">
 
-    <div id="homeuser_pic"></div>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div id="homeuser_menu_div">
+        <i class="fa fa-bars" style="size: 12x;"></i>
+    </div>
+
+    <div id="homeuser_pic_div1">
+        <img id="homeuser_pic1" src="../assets/homeuser_pic1.png" alt="placehold">
+    </div>
 
     <div id="homeuser_t1">
         <h1>Stay safe on the road</h1>
     </div>
 
-    <div id="homeuser_b1">
-        <button class="rund" id="start_b1" @click="$router.push('homeuser')">
-            <span>&#8593;</span>
-        </button>
+    <div id="homeuser_pic_div2">
+        <div style="width: 100%;">
+            <img id="homeuser_pic2" src="../assets/homeuser_pic2.png" alt="placehold">
+        </div>
     </div>
 
     <div id="homeuser_t2">
         <p>Keep me posted!</p>
     </div>
 
-    <div id="a_warnings">
-        <input type="checkbox" id="toggle_button">
-        <p style="margin-top: 0%; margin-left: 5%;">Enable automatic warnings</p>
+    <div id="a_warnings_div1">
+        <div id="a_warnings_div2">
+            <toggle-button></toggle-button>
+            <p style="margin-top: 0%; margin-left: 5%;">Enable automatic warnings</p>
+        </div>
     </div>
 
     <div id="homeuser_t3">
-        <p>Why is RTW helpful</p>
+        <p @click="$router.push('rtwinfo1')">Why is RTW helpful</p>
     </div>
 
 
@@ -31,11 +41,12 @@
 </template>
 
 <script>
+import { ToggleButton } from 'vue-js-toggle-button'
 
 export default {
   name: 'App',
   components: {
-
+      ToggleButton
   }
 }
 </script>
@@ -50,17 +61,36 @@ export default {
         justify-content: space-around;
     }
 
-    #homeuser_pic{
-        height: 20%;
-        background-color: blue;
+    #homeuser_menu_div{
+        width: 10%;
+        height: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+    }
+
+    #homeuser_pic_div1{
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #homeuser_pic1{
+        width: 100%;
     }
 
     #homeuser_t1{
+        height: 20%;
+        color: #8ABCF2;
+    }
+
+    #homeuser_pic2_div{
         height: 10%;
     }
 
-    #homeuser_b1{
-        height: 20%;
+    #homeuser_pic2{
+        width: 20%;
     }
 
     .rund {
@@ -75,18 +105,27 @@ export default {
     }
 
     #homeuser_t2{
-        height: 20%;
+        height: 5%;
     }
 
-    #a_warnings{
+    #a_warnings_div1{
         height: 10%;
         display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    #a_warnings_div2{
+        display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content:center;
     }
 
     #homeuser_t3{
-        height: 20%;
+        height: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-end;
     }
 
 </style>
