@@ -14,7 +14,7 @@
     </div>
 
     <div id="info2_text">
-        <h2>Identification of ambulance vehicles for emergency rescue</h2>
+        <h2 style="padding-top: 3%;">Identification of ambulance vehicles for emergency rescue</h2>
         <p>
             With growing population density in cities, finding ways to make cities safe and sustainable is key. 
 69% of traffic accidents happen in urban areas. To enable safer mobility for all people on the road, our mission is to use 5G technology as the enabler for real-time, focused warnings when you are on the road.

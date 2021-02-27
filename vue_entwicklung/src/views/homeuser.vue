@@ -25,7 +25,7 @@
 
     <div id="homeuser_t2">
         <p v-if="!this.warnings_activated">Start listening for Warnings!</p>
-        <p style="color: #8ABCF2" v-if="this.warnings_activated">Listening for ER warnings on your route...</p>
+        <p style="color: #163CFF" v-if="this.warnings_activated">Listening for ER warnings on your route...</p>
     </div>
 
     <div id="a_warnings_div1">
