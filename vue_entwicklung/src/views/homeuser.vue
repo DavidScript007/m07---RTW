@@ -12,22 +12,25 @@
     </div>
 
     <div id="homeuser_t1">
-        <h1>Stay safe on the road</h1>
+        <h1 v-if="!this.warnings_activated">Stay safe on the road.</h1>
+        <h1 v-if="this.warnings_activated">Drive safe! We'll help.</h1>
     </div>
 
     <div id="homeuser_pic_div2">
         <div style="width: 100%;">
-            <img id="homeuser_pic2" src="../assets/homeuser_pic2.png" alt="placehold">
+            <img v-if="!this.warnings_activated" @click="warnings_activated=true" id="homeuser_pic2" src="../assets/homeuser_pic2.png" alt="placehold">
+            <img v-if="this.warnings_activated" @click="warnings_activated=false" id="homeuser_pic2" src="../assets/homeuser_pic3.png" alt="placehold">
         </div>
     </div>
 
     <div id="homeuser_t2">
-        <p>Keep me posted!</p>
+        <p v-if="!this.warnings_activated">Keep me posted!</p>
+        <p style="color: #8ABCF2" v-if="this.warnings_activated">Listening for ER warnings on your route...</p>
     </div>
 
     <div id="a_warnings_div1">
         <div id="a_warnings_div2">
-            <toggle-button></toggle-button>
+            <toggle-button/>
             <p style="margin-top: 0%; margin-left: 5%;">Enable automatic warnings</p>
         </div>
     </div>
@@ -47,6 +50,12 @@ export default {
   name: 'App',
   components: {
       ToggleButton
+  },
+
+  data(){
+      return {
+          warnings_activated: false,
+      }
   }
 }
 </script>
@@ -122,6 +131,7 @@ export default {
     }
 
     #homeuser_t3{
+        color: gray;
         height: 10%;
         display: flex;
         flex-direction: column;

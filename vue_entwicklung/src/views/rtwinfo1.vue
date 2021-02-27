@@ -1,8 +1,14 @@
 <template>
   <div id="rtwinfo1">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <div id="appbar">
-        <h1>How does this help?</h1>
+        <div id="appbar2">
+            <img id="arrow_back" @click="$router.push('homeuser')" src="../assets/arrow_back.png" alt="placehold">
+            <h1 id="appbar_text">How does this help?</h1>
+            <img id="arrow_back">
+        </div>
     </div>
 
     <div id="info1_pic">
@@ -58,7 +64,31 @@ export default {
     height: 10%;
     background-color: #8ABCF2;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content:center;
 }
+
+#appbar2{
+    height:50%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+#arrow_back{
+    height: 60%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 2%;
+}
+
+#appbar_text{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 
 #info1_pic{
     height: 30%;
