@@ -8,7 +8,8 @@
     </div>
 
     <div id="homeuser_pic_div1">
-        <img id="homeuser_pic1" src="../assets/homeuser_pic1.png" alt="placehold">
+        <img id="homeuser_pic1" v-if="!this.warnings_activated" src="../assets/homeuser_pic1.png" alt="placehold">
+        <img id="homeuser_pic1" v-if="this.warnings_activated" src="../assets/homeuser_pic4.png" alt="placehold">
     </div>
 
     <div id="homeuser_t1">

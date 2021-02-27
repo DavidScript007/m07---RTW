@@ -8,7 +8,8 @@
     </div>
 
     <div id="homeemergency_pic_div1">
-        <img id="homeemergency_pic1" src="../assets/homeemergency_pic1.png" alt="placehold">
+        <img id="homeemergency_pic1" v-if="!this.warnings_activated" src="../assets/homeemergency_pic1.png" alt="placehold">
+        <img id="homeemergency_pic1" v-if="this.warnings_activated" src="../assets/homeemergency_pic3.png" alt="placehold">
     </div>
 
     <div id="homeemergency_t1">
@@ -18,7 +19,7 @@
 
     <div id="homeemergency_pic_div2">
         <div style="width: 100%;">
-            <img v-if="!this.warnings_activated" @click="warnings_activated=true" id="homeuser_pic2" src="../assets/homeuser_pic2.png" alt="placehold">
+            <img v-if="!this.warnings_activated" @click="send_warning()" id="homeuser_pic2" src="../assets/homeemergency_pic2.png" alt="placehold">
             <img v-if="this.warnings_activated" @click="deactivate()" id="homeuser_pic2" src="../assets/homeuser_pic3.png" alt="placehold">
         </div>
     </div>
@@ -58,32 +59,20 @@ export default {
   },
 
 
-    sockets: {
-        customEmit: function (data) {
-
-            if (this.warnings_activated) {
-                var aussage = new SpeechSynthesisUtterance(data);
-                window.speechSynthesis.speak(aussage);
-
-                this.$fire({
-                    title: "Achtung!",
-                    text: data,
-                    type: "warning",
-                    timer: 20000
-                });
-            }
-        }
-    },
-
-
   methods: {
+
+
+      send_warning() {
+          this.warnings_activated = true;
+          this.$socket.emit('get-message', 'Warnung empfangen');
+      },
 
 
       deactivate() {
 
           Swal.fire({
                 title: 'Stop ER warnings?',
-                text: "ER warnings won't appear any longer.",
+                text: "ER warnings won't be sent any longer.",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#163CFF',
