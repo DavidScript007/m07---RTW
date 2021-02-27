@@ -18,7 +18,7 @@
 
     <div id="homeuser_pic_div2">
         <div style="width: 100%;">
-            <img v-if="!this.warnings_activated" @click="warnings_activated=true" id="homeuser_pic2" src="../assets/homeuser_pic2.png" alt="placehold">
+            <img v-if="!this.warnings_activated" @click="warnings_activated=true; send_warning()" id="homeuser_pic2" src="../assets/homeuser_pic2.png" alt="placehold">
             <img v-if="this.warnings_activated" @click="warnings_activated=false" id="homeuser_pic2" src="../assets/homeuser_pic3.png" alt="placehold">
         </div>
     </div>
@@ -49,14 +49,38 @@ import { ToggleButton } from 'vue-js-toggle-button'
 export default {
   name: 'App',
   components: {
-      ToggleButton
+      ToggleButton,
   },
 
   data(){
       return {
           warnings_activated: false,
+      };
+  },
+
+  methods: {
+
+      send_warning() {
+
+            setTimeout(function() {
+
+                var aussage = new SpeechSynthesisUtterance('Hier könnte Ihre Werbung stehen');
+                window.speechSynthesis.speak(aussage);
+
+                alert("Ein Rettungswagen befindet sich auf Ihrer Route!");
+
+
+                //this.$fire({
+                //    title: "Achtung!",
+                //    text: "Ein Rettungswagen befindet sich auf Ihrer Route!",
+                //    type: "warning",
+                //    timer: 20000
+                //});""
+
+            }, 5000);
+
       }
-  }
+  },
 }
 </script>
 

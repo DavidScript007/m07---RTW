@@ -11,7 +11,7 @@
 
     <div id="start_buttons_div">
         <button class="start_buttons" id="start_b1" @click="$router.push('homeuser')">GET STARTED</button>
-        <button class="start_buttons" id="start_b2" @click="$router.push('/')">IM A EMERGENCY SERVICE</button>
+        <button class="start_buttons" id="start_b2" @click="test()">IM A EMERGENCY SERVICE</button>
     </div>
 
 
@@ -23,7 +23,20 @@
 export default {
   name: 'App',
   components: {
-  }
+  },
+
+  sockets: {
+    customEmit: function (data) {
+      console.log(data);
+    }
+  },
+
+  methods: {
+    test: function () {
+      console.log("Hallo");
+      this.$socket.emit('get-message', 'Das ist ein Test!');
+    },
+  },
 }
 </script>
 
