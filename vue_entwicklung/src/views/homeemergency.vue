@@ -64,7 +64,7 @@ export default {
 
       send_warning() {
           this.warnings_activated = true;
-          this.$socket.emit('get-message', 'Warnung empfangen');
+          this.$socket.emit('get-message', 'Warning! There is an Emergency Rescue on your way. It’ll be right next to your Location. Please be prepared to form a rescue lane.');
       },
 
 

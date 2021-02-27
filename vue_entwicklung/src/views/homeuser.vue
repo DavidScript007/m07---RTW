@@ -67,6 +67,7 @@ export default {
 
             if (this.warnings_activated) {
                 var aussage = new SpeechSynthesisUtterance(data);
+                aussage.lang = 'en-US';
                 window.speechSynthesis.speak(aussage);
 
                 this.$fire({
