@@ -1,15 +1,14 @@
 <template>
   <div id="homeuser">
-    
-    <div id="homeuser_pic"></div>
+
+      <div id="homeuser_pic"></div>
 
     <div id="start_pic"></div>
 
     <div id="start_buttons_div">
-        <button class="start_buttons" id="start_b1" @click="router.push('startscreen')">GET STARTED</button>
-        <button class="start_buttons" id="start_b2" @click="router.push('startscreen')">IM A EMERGENCY SERVICE</button>
+        <button class="start_buttons" id="start_b1" @click="$router.push('homeuser')">GET STARTED</button>
+        <button class="start_buttons" id="start_b2" @click="$router.push('/')">IM A EMERGENCY SERVICE</button>
     </div>
-
 
   </div>
 </template>
@@ -17,7 +16,7 @@
 <script>
 
 export default {
-  name: 'homeuser',
+  name: 'App',
   components: {
 
   }

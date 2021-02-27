@@ -1,16 +1,14 @@
 <template>
   <div id="app">
-    <startscreen/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import startscreen from './views/startscreen.vue'
 
 export default {
   name: 'App',
   components: {
-    startscreen
   }
 }
 </script>
