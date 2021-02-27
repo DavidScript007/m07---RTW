@@ -11,7 +11,7 @@
 
     <div id="start_buttons_div">
         <button class="start_buttons" id="start_b1" @click="$router.push('homeuser')">GET STARTED</button>
-        <button class="start_buttons" id="start_b2" @click="test()">IM A EMERGENCY SERVICE</button>
+        <button class="start_buttons" id="start_b2" @click="$router.push('homeemergency')">IM A EMERGENCY SERVICE</button>
     </div>
 
 

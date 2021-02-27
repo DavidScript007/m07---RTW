@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import startscreen from '../views/startscreen.vue';
 import homeuser from '../views/homeuser.vue';
+import homeemergency from '../views/homeemergency.vue';
 import rtwinfo1 from '../views/rtwinfo1.vue';
 import rtwinfo2 from '../views/rtwinfo2.vue';
 
@@ -31,6 +32,12 @@ const routes = [
     path: '/rtwinfo2',
     name: 'rtwinfo2',
     component: rtwinfo2,
+  },
+
+  {
+    path: '/homeemergency',
+    name: 'homeemergency',
+    component: homeemergency,
   },
 
 ];
