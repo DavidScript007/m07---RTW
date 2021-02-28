@@ -43,16 +43,20 @@ export default {
       draw_driver();
 
       function draw_driver() {
+
         ctx.beginPath();
         ctx.fillRect(x_driver, y_driver, 5, 3);
         ctx.stroke();
 
         if(x_driver > 120){
-          if(col_hero = 0){
+
+          if(col_hero == 0){
             ctx.fillStyle = 'blue';
+            col_hero = 1;
           }
           else{
             ctx.fillStyle = 'white';
+            col_hero = 0;
           }
           ctx.beginPath();
           ctx.fillRect(x_hero, 78, 5, 3);
