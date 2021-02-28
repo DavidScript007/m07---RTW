@@ -64,7 +64,7 @@ export default {
 
       send_warning() {
           this.warnings_activated = true;
-          this.$socket.emit("activate-animation", "TTTTESST");
+          this.$socket.emit("activate-animation", "Animation gestartet");
       },
 
 

@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <button @click="start_animation()">Animation starten</button>
     <canvas id="myCanvas"></canvas>
   </div>
 </template>
@@ -22,7 +21,7 @@ export default {
   sockets: {
     animation_activated: function (data) {
       console.log(data);
-      this.start_animation;
+      this.start_animation();
     }
   },
 
@@ -39,20 +38,27 @@ export default {
       var warned = 0;
       var x_driver_speed = 1;
       var y_driver = 78;
-
+      var col_hero = 0;
 
       draw_driver();
 
       function draw_driver() {
-
         ctx.beginPath();
         ctx.fillRect(x_driver, y_driver, 5, 3);
         ctx.stroke();
 
         if(x_driver > 120){
+          if(col_hero = 0){
+            ctx.fillStyle = 'blue';
+          }
+          else{
+            ctx.fillStyle = 'white';
+          }
           ctx.beginPath();
           ctx.fillRect(x_hero, 78, 5, 3);
           ctx.stroke();
+
+          ctx.fillStyle = 'black';
         }
 
         setTimeout(function(){
