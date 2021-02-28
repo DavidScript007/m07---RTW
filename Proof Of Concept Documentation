@@ -1,0 +1,16 @@
+In unserem Beispielvideo des Proof Of Concepts siehst du zunächst drei Sichtweisen.
+Diese sind:
+
+- die Sicht des Users
+- die Sicht der Rettungskraft
+- die Sicht auf unsere Animations-Simulation
+
+
+Ablauf:
+
+Nachdem die Rettungskraft das aussenden von Warnungen (in Realität über 5G) aktiviert hat, beginnt die Animation.
+
+Um das Aussenden der Warnung per 5G simulieren zu können, sendet die App auf Seite der Rettungskraft die Warnung an den Server, wenn sich das Rettungsfahrzeug (blau/weiß) dem
+User (schwarz) nähert.
+
+Der Server schickt die Meldung weiter an den User, welcher daraufhin eine Warnmeldung mit Sprachausgabe auf seinem Display angezeigt bekommt.
