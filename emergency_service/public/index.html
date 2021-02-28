@@ -1,78 +1,17 @@
 <!DOCTYPE html>
-<html style="height: 100%;">
-<style>
-
-  #myCanvas{
-    height: 100%; 
-    width: 100%;
-    background-image: url("background_map.png");
-  }
-
-</style>
-<body style="height: 100%;">
-  <canvas id="myCanvas"></canvas>
-</body>
-
-<script>
-
-  var canvas = document.getElementById('myCanvas');
-  var ctx = canvas.getContext('2d');
-
-  var x_driver = 0;
-  var x_hero = 0;
-  var warned = new Boolean("false");
-  var x_driver_speed = 2;
-  var y_driver = 78;
-
-  draw_driver();
-
-  function draw_driver() {
-
-    ctx.beginPath();
-    ctx.fillRect(x_driver, y_driver, 5, 3);
-    ctx.stroke();
-
-    if(x_driver > 80){
-      ctx.beginPath();
-      ctx.fillRect(x_hero, 78, 5, 3);
-      ctx.stroke();
-    }
-
-    setTimeout(function(){
-      
-      ctx.clearRect(0, 0, 500, 500);
-
-      x_driver = x_driver + x_driver_speed;
-
-      if(x_driver > 80){
-        x_hero = x_hero+3;
-
-
-        if(x_driver - x_hero < 30){
-          x_driver_speed = 0;
-        }
-
-        else if(x_driver - x_hero < 50){
-          if(warned = false){
-            send_warning();
-            warned = true;
-          }
-          x_driver_speed = 1;
-          y_driver = y_driver + 0.5;
-        }
-      }
-
-      draw_driver();
-
-      function send_warning() {
-        $socket.emit('get-message', 'Warnung empfangen!');
-      }
-
-    }, 100);
-
-  }
-  
-
-</script>
-           
+<html style="height: 100%;" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body style="height: 100%; margin-top: 0%">
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
 </html>
