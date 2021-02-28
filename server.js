@@ -12,6 +12,11 @@ const io = require("socket.io")(http, {
 });
 
 io.on('connection', function(socket){ 
+
+    socket.on('activate-animation', text => {
+      io.emit("animation_activated", text);
+    } ),
+
     socket.on('get-message', text => {
       io.emit("customEmit", text);
     } )

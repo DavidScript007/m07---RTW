@@ -19,6 +19,14 @@ export default {
   },
 
 
+  sockets: {
+    animation_activated: function (data) {
+      console.log(data);
+      this.start_animation;
+    }
+  },
+
+
   methods: {
 
 
@@ -26,10 +34,10 @@ export default {
       var canvas = document.getElementById('myCanvas');
       var ctx = canvas.getContext('2d');
 
-      var x_driver = 0;
+      var x_driver = 110;
       var x_hero = 0;
       var warned = 0;
-      var x_driver_speed = 2;
+      var x_driver_speed = 1;
       var y_driver = 78;
 
 
@@ -41,7 +49,7 @@ export default {
         ctx.fillRect(x_driver, y_driver, 5, 3);
         ctx.stroke();
 
-        if(x_driver > 80){
+        if(x_driver > 120){
           ctx.beginPath();
           ctx.fillRect(x_hero, 78, 5, 3);
           ctx.stroke();
@@ -53,21 +61,25 @@ export default {
 
           x_driver = x_driver + x_driver_speed;
 
-          if(x_driver > 80){
-            x_hero = x_hero+3;
+          if(x_driver > 120){
+            x_hero = x_hero+1.8;
 
 
             if(x_driver - x_hero < 30){
-              x_driver_speed = 0;
+              if(y_driver > 82){
+                x_driver_speed = 0;
+              }
+              else{
+                y_driver = y_driver + 0.5;
+              }
             }
 
-            else if(x_driver - x_hero < 50){
+            else if(x_driver - x_hero < 150){
               if(warned == 0){
                 send_warning();
                 warned = 1;
               }
               x_driver_speed = 1;
-              y_driver = y_driver + 0.5;
             }
           }
 
@@ -78,7 +90,7 @@ export default {
         function send_warning() {
           const io = require("socket.io-client");
           const socket = io("http://192.168.0.26:5000");
-          socket.emit("get-message", "Warnung empfangen!");
+          socket.emit("get-message", "Warning! There is an Emergency Rescue on your way. It’ll be right next to your Location. Please be prepared to form a rescue lane.");
         }
       }
     },
