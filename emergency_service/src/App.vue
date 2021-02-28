@@ -37,7 +37,7 @@ export default {
       var x_hero = 0;
       var warned = 0;
       var x_driver_speed = 1;
-      var y_driver = 78;
+      var y_driver = 77.5;
       var col_hero = 0;
 
       draw_driver();
@@ -59,7 +59,7 @@ export default {
             col_hero = 0;
           }
           ctx.beginPath();
-          ctx.fillRect(x_hero, 78, 5, 3);
+          ctx.fillRect(x_hero, 77.5, 5, 3);
           ctx.stroke();
 
           ctx.fillStyle = 'black';
