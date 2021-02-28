@@ -10,7 +10,8 @@ Reduzierung der Fahrzeit von Rettungsfahrzeugen zum Einsatzort (medizinische Ret
 # Links:
 Github: da bist du schon..
 Prototyp: https://previewer.adalo.com/58169485-258c-406d-a542-754282da1624
-Concept Paper & Pitch Präsentation findest du in diesem Repository
+Dokumentation des Proof of Concept und unsere Web-Application findest du in diesem Repository in der Branch "master"
+Pitch Präsentation und Overviewsheet findest du in diesem Repository in der Branch "main"
 # Team: M07
 David Eisinger
 Kiara Hämmerle
