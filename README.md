@@ -1,7 +1,7 @@
 # m07---RTW
 #MESH Hackathon Einreichung von Team m07
 
-# Titel: RTW - Run The Way
+# Titel: RTW - Rescue The Way
 # Slogan: Every Second Counts.
 # Kurzbeschreibung: 
 Nutzung von 5G zur Echtzeit-Warnung von Verkehrsteilnehmern und Infrastruktur beim Einsatz von Rettungskräften mittels App.
