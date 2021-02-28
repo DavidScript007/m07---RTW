@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <button class="start_buttons" id="start_b1" @click="send_warning()">SEND A WARNING</button>
+
   </div>
 </template>
 

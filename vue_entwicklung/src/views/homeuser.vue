@@ -19,7 +19,7 @@
 
     <div id="homeuser_pic_div2">
         <div style="width: 100%;">
-            <img v-if="!this.warnings_activated" @click="warnings_activated=true" id="homeuser_pic2" src="../assets/homeuser_pic2.png" alt="placehold">
+            <img v-if="!this.warnings_activated" @click="activate()" id="homeuser_pic2" src="../assets/homeuser_pic2.png" alt="placehold">
             <img v-if="this.warnings_activated" @click="deactivate()" id="homeuser_pic2" src="../assets/homeuser_pic3.png" alt="placehold">
         </div>
     </div>
@@ -90,6 +90,10 @@ export default {
                     type: "info",
                     timer: 20000
             });
+      },
+
+      activate() {
+            this.warnings_activated=true;
       },
 
       deactivate() {
